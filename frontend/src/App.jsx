@@ -46,7 +46,7 @@ function exportCSV(data, horizon, start, end) {
 
 function App() {
   const [dateRange, setDateRange] = useState({
-    start: daysAgoDatetimeLocal(30),
+    start: daysAgoDatetimeLocal(7),
     end: nowUTCDatetimeLocal(),
   })
 
@@ -56,6 +56,28 @@ function App() {
 
   const [compareMode, setCompareMode] = useState(false)
   const [lastUpdated, setLastUpdated] = useState(null)
+
+  // Security: disable right-click, text selection, and copy/devtools shortcuts
+  useEffect(() => {
+    const blockContext = (e) => e.preventDefault()
+
+    const blockKeys = (e) => {
+      const key = e.key.toLowerCase()
+      const ctrl = e.ctrlKey || e.metaKey
+      // Block copy, select all, save, print, view-source
+      if (ctrl && ['c', 'a', 's', 'p', 'u'].includes(key)) return e.preventDefault()
+      // Block devtools: F12, Ctrl+Shift+I/J/C
+      if (e.key === 'F12') return e.preventDefault()
+      if (ctrl && e.shiftKey && ['i', 'j', 'c'].includes(key)) return e.preventDefault()
+    }
+
+    document.addEventListener('contextmenu', blockContext)
+    document.addEventListener('keydown', blockKeys)
+    return () => {
+      document.removeEventListener('contextmenu', blockContext)
+      document.removeEventListener('keydown', blockKeys)
+    }
+  }, [])
 
   function handleHorizonChange(val) {
     setHorizon(val)
