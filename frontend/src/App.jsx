@@ -105,6 +105,7 @@ function App() {
             <div className="header-titles">
               <h1>Wind Forecast Monitor</h1>
               <p className="subtitle">GB wind generation — actual vs forecast (BMRS data)</p>
+              <p className="tagline">Accelerating Energy Transition using AI</p>
             </div>
           </div>
         </div>
@@ -213,6 +214,10 @@ function App() {
           </div>
         )}
       </main>
+
+      <footer className="app-footer">
+        <p>Built for REint AI by Likhith N &nbsp;&mdash;&nbsp; &copy; 2026 All rights reserved.</p>
+      </footer>
     </div>
   )
 }

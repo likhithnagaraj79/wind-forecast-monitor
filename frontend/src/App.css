@@ -44,6 +44,14 @@
   margin-top: 2px;
 }
 
+.header-titles .tagline {
+  font-size: 0.68rem;
+  color: #4a8fa0;
+  margin-top: 2px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
 /* ── Main ────────────────────────────────────────────────── */
 .app-main {
   flex: 1;
@@ -322,6 +330,16 @@
 
 .stats-bar strong {
   color: #1e293b;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.app-footer {
+  background: #0b303b;
+  text-align: center;
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  color: #4a8fa0;
+  margin-top: auto;
 }
 
 /* ── Controls action buttons ─────────────────────────────── */
