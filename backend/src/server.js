@@ -14,9 +14,9 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3000
 
-// Support comma-separated list of allowed origins for multi-environment deploys
-// e.g. FRONTEND_URL=https://wind-forecast-monitor.vercel.app,http://localhost:5173
-const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
+// Allow all Vercel preview/production URLs + explicit origins from env
+// Vercel generates a new subdomain per deployment, so we match the pattern
+const explicitOrigins = (process.env.FRONTEND_URL || '')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean)
@@ -24,9 +24,14 @@ const allowedOrigins = (process.env.FRONTEND_URL || 'http://localhost:5173')
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (curl, Render health checks, same-origin)
+      // Allow requests with no origin (curl, Render health checks)
       if (!origin) return callback(null, true)
-      if (allowedOrigins.includes(origin)) return callback(null, true)
+      // Allow any Vercel deployment URL (covers preview + production)
+      if (origin.endsWith('.vercel.app')) return callback(null, true)
+      // Allow localhost dev
+      if (origin.startsWith('http://localhost:')) return callback(null, true)
+      // Allow any explicitly listed origins
+      if (explicitOrigins.includes(origin)) return callback(null, true)
       callback(new Error(`CORS: origin ${origin} not allowed`))
     },
   })
