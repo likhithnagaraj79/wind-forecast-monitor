@@ -97,8 +97,6 @@ export function WindChart({ data, horizon, loading }) {
     }
   })
 
-  const tickInterval = Math.max(1, Math.floor(chartData.length / 12))
-
   return (
     <div className="chart-wrapper">
       {coveragePct < 80 && (
@@ -123,8 +121,8 @@ export function WindChart({ data, horizon, loading }) {
           <XAxis
             dataKey="start_time"
             tickFormatter={formatDateTick}
-            interval={tickInterval}
-            minTickGap={60}
+            interval="preserveStartEnd"
+            minTickGap={70}
             tick={{ fontSize: 11, fill: '#64748b' }}
             tickLine={false}
           >

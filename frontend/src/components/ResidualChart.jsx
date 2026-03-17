@@ -52,7 +52,6 @@ export function ResidualChart({ data, horizon }) {
   if (residuals.length === 0) return null
 
   const chartData = downsample(residuals)
-  const tickInterval = Math.max(1, Math.floor(chartData.length / 12))
 
   return (
     <div className="chart-card">
@@ -72,8 +71,8 @@ export function ResidualChart({ data, horizon }) {
           <XAxis
             dataKey="start_time"
             tickFormatter={formatDateTick}
-            interval={tickInterval}
-            minTickGap={60}
+            interval="preserveStartEnd"
+            minTickGap={70}
             tick={{ fontSize: 11, fill: '#64748b' }}
             tickLine={false}
           >
