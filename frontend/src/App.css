@@ -322,6 +322,173 @@
   color: #1e293b;
 }
 
+/* ── Controls action buttons ─────────────────────────────── */
+.controls-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.mode-btn,
+.export-btn {
+  padding: 0.38rem 1rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.mode-btn {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  color: #475569;
+}
+
+.mode-btn:hover,
+.mode-btn--active {
+  background: #0b303b;
+  border-color: #0b303b;
+  color: #ffffff;
+}
+
+.export-btn {
+  background: #148a38;
+  border: 1.5px solid #148a38;
+  color: #ffffff;
+}
+
+.export-btn:hover:not(:disabled) {
+  background: #0f6e2d;
+  border-color: #0f6e2d;
+}
+
+.export-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Section title ───────────────────────────────────────── */
+.section-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  padding: 0 0.25rem;
+}
+
+/* ── Horizon slider disabled state ───────────────────────── */
+.horizon-slider--disabled {
+  opacity: 0.5;
+}
+
+.horizon-disabled-note {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+/* ── Error Metrics (KPI cards) ───────────────────────────── */
+.metrics-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.metrics-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+}
+
+.kpi-card {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+.kpi-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #1e293b;
+}
+
+.kpi-unit {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.kpi-hint {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+}
+
+/* ── Residual chart ──────────────────────────────────────── */
+.residual-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  padding: 0 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.residual-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-left: auto;
+}
+
+.residual-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.tooltip-hint {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* ── Stats bar — last updated ────────────────────────────── */
+.stats-updated {
+  margin-left: auto;
+}
+
 /* ── Mobile ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .app-header {
@@ -363,6 +530,16 @@
   .chart-card {
     padding: 1rem 0.75rem 0.5rem;
   }
+
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .controls-actions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 400px) {
@@ -373,5 +550,9 @@
   .preset-btn {
     font-size: 0.7rem;
     padding: 0.2rem 0.6rem;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
