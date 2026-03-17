@@ -1,0 +1,377 @@
+/* ── Base layout ─────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.app-header {
+  background: #0b303b;
+  padding: 0.875rem 2rem;
+}
+
+.header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.header-logo {
+  height: 38px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.header-titles h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.header-titles .subtitle {
+  font-size: 0.75rem;
+  color: #7fb3bf;
+  margin-top: 2px;
+}
+
+/* ── Main ────────────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Controls card ───────────────────────────────────────── */
+.controls-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.controls-divider {
+  width: 1px;
+  background: #e2e8f0;
+  align-self: stretch;
+  min-height: 56px;
+  flex-shrink: 0;
+}
+
+/* ── DateTime Picker ─────────────────────────────────────── */
+.dt-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dt-fields {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.dt-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dt-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.dt-input {
+  padding: 0.45rem 0.65rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: #1e293b;
+  background: #ffffff;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.dt-input:focus {
+  border-color: #148a38;
+  box-shadow: 0 0 0 3px rgba(20, 138, 56, 0.12);
+}
+
+.validation-msg {
+  font-size: 0.72rem;
+  color: #ef4444;
+}
+
+.preset-buttons {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.preset-btn {
+  padding: 0.22rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 100px;
+  background: #f8fafc;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.preset-btn:hover,
+.preset-btn--active {
+  background: #0b303b;
+  border-color: #0b303b;
+  color: #ffffff;
+}
+
+/* ── Horizon slider ──────────────────────────────────────── */
+.horizon-slider {
+  flex: 1;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.control-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 4px;
+}
+
+.slider-tick {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  min-width: 26px;
+}
+
+.range-input {
+  flex: 1;
+  accent-color: #148a38;
+  cursor: pointer;
+  height: 4px;
+}
+
+.horizon-hint {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* ── Chart card ──────────────────────────────────────────── */
+.chart-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.chart-wrapper {
+  width: 100%;
+}
+
+/* ── Chart placeholder states ───────────────────────────── */
+.chart-placeholder-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  gap: 0.75rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.chart-empty .empty-hint {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+/* ── Loading spinner ─────────────────────────────────────── */
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e2e8f0;
+  border-top-color: #148a38;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Coverage + downsample notices ──────────────────────── */
+.coverage-warning {
+  font-size: 0.78rem;
+  color: #92400e;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.downsample-note {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Chart tooltip ───────────────────────────────────────── */
+.chart-tooltip {
+  background: #0b303b;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip-time {
+  color: #7fb3bf;
+  margin-bottom: 0.3rem;
+  font-size: 0.72rem;
+}
+
+.tooltip-value {
+  margin: 0.15rem 0;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* ── Error banner ────────────────────────────────────────── */
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #b91c1c;
+}
+
+.retry-btn {
+  padding: 0.3rem 0.9rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  background: #148a38;
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.retry-btn:hover {
+  background: #0f6e2d;
+}
+
+/* ── Stats bar ───────────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: #64748b;
+  padding: 0 0.25rem;
+}
+
+.stats-bar strong {
+  color: #1e293b;
+}
+
+/* ── Mobile ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .header-logo {
+    height: 30px;
+  }
+
+  .header-titles h1 {
+    font-size: 1rem;
+  }
+
+  .app-main {
+    padding: 1rem;
+    gap: 0.875rem;
+  }
+
+  .controls-card {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .controls-divider {
+    width: 100%;
+    height: 1px;
+    min-height: 0;
+    align-self: auto;
+  }
+
+  .dt-fields {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .chart-card {
+    padding: 1rem 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-brand {
+    gap: 0.5rem;
+  }
+
+  .preset-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: wind-forecast-monitor-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DB_PATH
+        value: /opt/render/project/src/data/wind_monitor.db
+      - key: BMRS_BASE_URL
+        value: https://data.elexon.co.uk/bmrs/api/v1
+      - key: CRON_SCHEDULE
+        value: "0 */6 * * *"
+      - key: FRONTEND_URL
+        sync: false   # Set this in the Render dashboard after deploying the frontend
+    disk:
+      name: wind-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
