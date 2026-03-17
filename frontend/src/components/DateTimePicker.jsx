@@ -10,7 +10,7 @@ const PRESETS = [
 
 export function DateTimePicker({ start, end, onChange }) {
   const [msg, setMsg] = useState('')
-  const [activePreset, setActivePreset] = useState('30 d')
+  const [activePreset, setActivePreset] = useState('7 d')
 
   function handleStartChange(e) {
     const val = e.target.value
