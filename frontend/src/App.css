@@ -332,15 +332,6 @@
   color: #1e293b;
 }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.app-footer {
-  background: #0b303b;
-  text-align: center;
-  padding: 0.875rem 2rem;
-  font-size: 0.75rem;
-  color: #4a8fa0;
-  margin-top: auto;
-}
 
 /* ── Controls action buttons ─────────────────────────────── */
 .controls-actions {

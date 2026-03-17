@@ -215,9 +215,7 @@ function App() {
         )}
       </main>
 
-      <footer className="app-footer">
-        <p>Built for REint AI by Likhith N &nbsp;&mdash;&nbsp; &copy; 2026 All rights reserved.</p>
-      </footer>
+
     </div>
   )
 }
