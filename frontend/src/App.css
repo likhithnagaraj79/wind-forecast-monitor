@@ -491,7 +491,7 @@
   margin-left: auto;
 }
 
-/* ── Mobile ──────────────────────────────────────────────── */
+/* ── Tablet / small desktop ──────────────────────────────── */
 @media (max-width: 768px) {
   .app-header {
     padding: 0.75rem 1rem;
@@ -533,8 +533,18 @@
     padding: 1rem 0.75rem 0.5rem;
   }
 
+  .metrics-section {
+    padding: 1rem;
+  }
+
+  /* 3-column KPI grid on tablet */
   .kpi-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .kpi-value {
+    font-size: 1.25rem;
   }
 
   .controls-actions {
@@ -542,9 +552,51 @@
     width: 100%;
     justify-content: flex-start;
   }
+
+  /* Stats bar: wrap naturally, remove auto-margin on last-updated */
+  .stats-bar {
+    gap: 0.75rem;
+  }
+
+  .stats-updated {
+    margin-left: 0;
+  }
+
+  /* Residual title: stack label and legend on separate lines */
+  .residual-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .residual-legend {
+    margin-left: 0;
+  }
 }
 
-@media (max-width: 400px) {
+/* ── Mobile (≤480px) ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* 2-column KPI grid on small phones */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kpi-value {
+    font-size: 1.1rem;
+  }
+
+  .kpi-hint {
+    font-size: 0.65rem;
+  }
+
+  /* Tighter chart margins so bars/lines fill the width */
+  .chart-wrapper .recharts-wrapper {
+    font-size: 10px;
+  }
+}
+
+/* ── Very small (≤360px) ─────────────────────────────────── */
+@media (max-width: 360px) {
   .header-brand {
     gap: 0.5rem;
   }
@@ -554,7 +606,9 @@
     padding: 0.2rem 0.6rem;
   }
 
-  .kpi-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .mode-btn,
+  .export-btn {
+    font-size: 0.75rem;
+    padding: 0.32rem 0.75rem;
   }
 }

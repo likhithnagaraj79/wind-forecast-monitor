@@ -57,10 +57,8 @@ function App() {
   const [compareMode, setCompareMode] = useState(false)
   const [lastUpdated, setLastUpdated] = useState(null)
 
-  // Security: disable right-click, text selection, and copy/devtools shortcuts
+  // Security: disable text selection shortcuts (right-click allowed)
   useEffect(() => {
-    const blockContext = (e) => e.preventDefault()
-
     const blockKeys = (e) => {
       const key = e.key.toLowerCase()
       const ctrl = e.ctrlKey || e.metaKey
@@ -71,12 +69,8 @@ function App() {
       if (ctrl && e.shiftKey && ['i', 'j', 'c'].includes(key)) return e.preventDefault()
     }
 
-    document.addEventListener('contextmenu', blockContext)
     document.addEventListener('keydown', blockKeys)
-    return () => {
-      document.removeEventListener('contextmenu', blockContext)
-      document.removeEventListener('keydown', blockKeys)
-    }
+    return () => document.removeEventListener('keydown', blockKeys)
   }, [])
 
   function handleHorizonChange(val) {

@@ -73,6 +73,7 @@ export function ResidualChart({ data, horizon }) {
             dataKey="start_time"
             tickFormatter={formatDateTick}
             interval={tickInterval}
+            minTickGap={60}
             tick={{ fontSize: 11, fill: '#64748b' }}
             tickLine={false}
           >
